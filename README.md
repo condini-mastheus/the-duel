@@ -43,11 +43,16 @@ To clone and run this template, you'll need [Git](https://git-scm.com) and [Node
 $ git clone https://github.com/condini-mastheus/the-duel
 
 # Go into the repository
-$ cd the duel
+$ cd the-duel
 
 # Install dependencies
 $ npm install
+```
 
+### Client
+All your game code lies inside the **/src/client/scripts** folder. All assets need to be inside the **/src/client/assets** folder in order to get copied to /dist while creating the production build. Do not change the name of the `index.html` and `game.ts` files.
+
+```bash
 # Start the local development server (on port 8080)
 $ npm start
 
@@ -59,17 +64,20 @@ $ npm run build
 $ npm run serve
 ```
 
-All your game code lies inside the **/src/scripts** folder. All assets need to be inside the **/src/assets** folder in order to get copied to /dist while creating the production build. Do not change the name of the index.html and game.ts files.
+### Server
 
+All your server code lies inside the **/src/server** folder. We are using [Colyseus](https://colyseus.io/) to handle multiplayer and monitor the application.
+
+
+```bash
+# Start the local server (on port 2567)
+$ npm run server
+```
 ## enable3d
-
-<a href="https://github.com/yandeu/enable3d#readme"><img src="readme/enable3d-logo.png" alt="enable3d logo" width="300"></a>
 
 Want to add 3D objects and physics to your Phaser game? Checkout [enable3d](https://github.com/yandeu/enable3d#readme)!
 
 ## Progressive Web App (PWA)
-
-![PWA](readme/pwa.png)
 
 This template is **100% PWA ready**.
 
@@ -138,9 +146,12 @@ Making a multiplayer game? Check out [geckos.io](https://github.com/geckosio/gec
 - [Phaser 3 API Docs](https://photonstorm.github.io/phaser3-docs/)
 - [Official Phaser 3 Examples](http://labs.phaser.io/)
 - [Notes of Phaser 3](https://rexrainbow.github.io/phaser3-rex-notes/docs/site/index.html)
+- [Colyseus Docs](https://docs.colyseus.io/colyseus/)
 
 ## Credits
 
 - A huge thank you to Rich [@photonstorm](https://github.com/photonstorm) for creating Phaser
 
 - A huge thank you to Yannick Deubel [@yandeu](https://github.com/yandeu) for creating this template
+
+- A huge thank you to Endel Dreyer [@endel](https://github.com/endel) for creating Colyseus
