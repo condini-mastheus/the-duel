@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: ['./src/client/scripts/game.ts', './webpack/credits.js'],
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist/client'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js'
   },

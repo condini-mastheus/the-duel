@@ -4,17 +4,21 @@
   "description": "An open source pvp game. Built with Phaser 3 and Colyseus",
   "homepage": "https://github.com/condini-mastheus/the-duel#readme",
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.dev.js",
-    "server": "ts-node-dev --project tsconfig.server.json src/server/index.ts",
-    "build": "rimraf dist && webpack --config webpack/webpack.prod.js",
-    "bundle": "npm run build",
-    "serve": "serve dist",
+    "start": "npm run client:dev & npm run server:dev",
+    "client:dev": "webpack serve --config webpack/webpack.dev.js",
+    "client:build": "rimraf dist/client && webpack --config webpack/webpack.prod.js",
+    "client:up": "serve dist/client",
+    "server:dev": "ts-node-dev --project tsconfig.server.json src/server/index.ts",
+    "server:build": "rimraf dist/server && tsc --project tsconfig.server.json",
+    "server:up": "node dist/server/index.js",
+    "bundle": "npm run client:build & npm run server:build",
     "format": "prettier --check src/**/*.ts",
     "format:write": "prettier --write src/**/*.ts"
   },
   "keywords": [
     "Phaser",
     "Phaser 3",
+    "Colyseus",
     "html5 game",
     "The Duel",
     "pvp game"
@@ -34,6 +38,7 @@
   "dependencies": {
     "@colyseus/command": "^0.2.1",
     "@colyseus/monitor": "^0.14.22",
+    "@colyseus/ws-transport": "^0.14.21",
     "colyseus": "^0.14.23",
     "colyseus.js": "^0.14.13",
     "cors": "^2.8.5",
