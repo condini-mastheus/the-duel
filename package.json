@@ -5,6 +5,7 @@
   "homepage": "https://github.com/condini-mastheus/the-duel#readme",
   "scripts": {
     "start": "npm run client:dev & npm run server:dev",
+    "joystick:dev": "webpack serve --config webpack/webpack.dev.joystick.js",
     "client:dev": "webpack serve --config webpack/webpack.dev.js",
     "client:build": "rimraf dist/client && webpack --config webpack/webpack.prod.js",
     "client:up": "serve dist/client",
@@ -43,7 +44,8 @@
     "colyseus.js": "^0.14.13",
     "cors": "^2.8.5",
     "express": "^4.17.3",
-    "phaser": "^3.55.2"
+    "phaser": "^3.55.2",
+    "phaser3-rex-plugins": "^1.1.69"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
