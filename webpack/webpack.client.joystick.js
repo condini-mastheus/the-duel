@@ -3,9 +3,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: ['./src/client/scripts/game.ts', './webpack/credits.js'],
+  entry: ['./src/client/joystick/scripts/index.ts', './webpack/credits.js'],
   output: {
-    path: path.resolve(__dirname, '../dist/client'),
+    path: path.resolve(__dirname, '../dist/joystick'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js'
   },
@@ -13,7 +13,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js']
   },
   module: {
-    rules: [{ test: /\.tsx?$|\.jsx?$/, include: path.join(__dirname, '../src/client'), loader: 'ts-loader' }]
+    rules: [{ test: /\.tsx?$|\.jsx?$/, include: path.join(__dirname, '../src/client/joystick'), loader: 'ts-loader' }]
   },
   optimization: {
     splitChunks: {
@@ -28,12 +28,11 @@ module.exports = {
     }
   },
   plugins: [
-    new HtmlWebpackPlugin({ gameName: 'The Duel', template: 'src/client/index.html' }),
+    new HtmlWebpackPlugin({ gameName: 'The Duel - Joystick', template: 'src/client/joystick/index.html' }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/client/assets', to: 'assets' },
         { from: 'pwa', to: '' },
-        { from: 'src/client/favicon.ico', to: '' }
+        { from: 'src/client/joystick/favicon.ico', to: '' }
       ]
     })
   ]
