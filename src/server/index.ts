@@ -27,6 +27,9 @@ gameServer.define('lobby', Lobby)
 // register colyseus monitor AFTER registering your room handlers
 app.use('/colyseus', monitor())
 
+app.use('/', express.static(__dirname + '/../../dist/game'))
+app.use('/joystick', express.static(__dirname + '/../../dist/joystick'))
+
 gameServer.listen(port)
 
 console.log(`Listening on ws://localhost:${port}`)

@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge')
-const common = require('./webpack.common')
+const clientJoystick = require('./webpack.client.joystick')
+const clientGame = require('./webpack.client.game')
 
 const dev = {
   mode: 'development',
@@ -7,7 +8,11 @@ const dev = {
   devtool: 'eval',
   devServer: {
     open: true
-  }
+  },
+  watch: true,
 }
 
-module.exports = merge(common, dev)
+const joystick = merge(clientJoystick, dev)
+const game = merge(clientGame, dev)
+
+module.exports = [game, joystick] 

@@ -1,6 +1,7 @@
 const path = require('path')
 const { merge } = require('webpack-merge')
-const common = require('./webpack.common')
+const clientJoystick = require('./webpack.client.joystick')
+const clientGame = require('./webpack.client.game')
 const { InjectManifest } = require('workbox-webpack-plugin')
 // const WebpackObfuscator = require('webpack-obfuscator')
 
@@ -37,4 +38,7 @@ const prod = {
   ]
 }
 
-module.exports = merge(common, prod)
+const joystick = merge(clientJoystick, prod)
+const game = merge(clientGame, prod)
+
+module.exports = [game, joystick] 

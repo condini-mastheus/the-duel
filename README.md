@@ -25,29 +25,13 @@ $ npm install
 # Fire up the project
 $ npm start
 ```
-
-### Client
-All your game code lies inside the **/src/client/scripts** folder. All assets need to be inside the **/src/client/assets** folder in order to get copied to `/dist/client` while creating the production build. Do not change the name of the `index.html` and `game.ts` files.
-
-```bash
-# Start the local development server (on port 8080)
-$ npm run client:dev
-
-# Ready for production?
-# Build the production ready code to the /dist/client folder
-$ npm run client:build
-
-# Play your production ready game in the browser
-$ npm run client:up
-```
-
 ### Server
 
 All your server code lies inside the **/src/server** folder. We are using [Colyseus](https://colyseus.io/) to handle multiplayer and monitor the application.
 
 
 ```bash
-# Start the local colyseus server (on port 2567)
+# Start the local colyseus server with hot reload (on port 2567)
 $ npm run server:dev
 
 # Ready for production?
@@ -57,6 +41,28 @@ $ npm run server:build
 # Serve your production ready colyseus local server
 $ npm run server:up
 ```
+
+### Client
+
+Your game will be server as static content by the server. You can locate the game at `/` and the joystick at `/joystick`
+
+#### Game
+All your game code lies inside the **/src/client/game/scripts** folder. All assets need to be inside the **/src/client/game/assets** folder in order to get copied to `/dist/game` while creating the production build. Do not change the name of the `src/client/game/index.html` and `src/client/game/index.ts` files.
+
+
+#### Joystick
+All your game code lies inside the **/src/client/joystick/scripts** folder. All assets need to be inside the **/src/client/joystick/assets** folder in order to get copied to `/dist/joystick` while creating the production build. Do not change the name of the `src/client/joystick/index.html` and `src/client/game/index.ts` files.
+
+#### How to run
+```bash
+# Build the development ready code to the /dist/game and /dist/joystick
+$ npm run client:dev
+
+# Ready for production?
+# Build the production ready code to the /dist/game and /dist/joystick folder
+$ npm run client:build
+```
+
 ## Custom Configurations
 
 ### TypeScript Compiler
